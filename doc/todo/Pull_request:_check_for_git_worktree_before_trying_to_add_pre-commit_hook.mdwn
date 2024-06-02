@@ -1,5 +1,7 @@
-Please consider adding the change from this [pull request](https://github.com/ktetzlaff/etckeeper-fork/tree/fix-init-in-worktree):
+Please consider adding the following commit from [this branch](https://github.com/ktetzlaff/etckeeper-fork/tree/fix-init-in-worktree):
 
-The commit-hook itself already checks for git worktrees and skips any actions which would modify the .etckeeper file. This commit adds a similar check to the `etckeeper init` command which skips trying to install the git commit-hook itself when inside a git worktree. This avoids the following error message (from running `etckeeper init -d` inside a worktree to e.g. fix permissions):
+## Don't try to add git-commit hook when in a git worktree
+
+The commit-hook itself already checks for git worktrees and skips any actions which would modify the `.etckeeper` file. This commit adds a similar check to the `etckeeper init` command which skips trying to install the git commit-hook itself when inside a git worktree. This avoids the following error message (from running `etckeeper init -d` inside a worktree to e.g. fix permissions):
 
     /etc/etckeeper/init.d/50vcs-pre-commit-hook: 11: cannot create .git/hooks/pre-commit: Directory nonexistent
