@@ -24,7 +24,7 @@ understand the basics of working with version control.
 %prep
 %setup -q -n %{name}
 %{__perl} -pi -e '
-	s|HIGHLEVEL_PACKAGE_MANAGER=apt|HIGHLEVEL_PACKAGE_MANAGER=yum|;
+	s|HIGHLEVEL_PACKAGE_MANAGER=apt|HIGHLEVEL_PACKAGE_MANAGER=yum|HIGHLEVEL_PACKAGE_MANAGER=rpm-ostree|;
 	s|LOWLEVEL_PACKAGE_MANAGER=dpkg|LOWLEVEL_PACKAGE_MANAGER=rpm|;
 	' %{_builddir}/%{name}/etckeeper.conf
 

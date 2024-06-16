@@ -64,6 +64,9 @@ endif
 ifeq ($(HIGHLEVEL_PACKAGE_MANAGER),dnf)
 	-$(PYTHON) ./etckeeper-dnf/etckeeper.py install --root=$(DESTDIR) ${PYTHON_INSTALL_OPTS} || echo "** DNF support not installed"
 endif
+ifeq ($(HIGHLEVEL_PACKAGE_MANAGER),rpm-ostree)
+	echo"** RPM-OSTREE does not support pre-post hooks"
+endif
 ifeq ($(HIGHLEVEL_PACKAGE_MANAGER),zypper)
 	mkdir -p $(DESTDIR)$(prefix)/lib/zypp/plugins/commit
 	$(INSTALL) zypper-etckeeper.py $(DESTDIR)$(prefix)/lib/zypp/plugins/commit/zypper-etckeeper.py
